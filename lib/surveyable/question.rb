@@ -41,12 +41,14 @@ module Surveyable
 
   class SingleSelectField < Question
     def field_type
-      'select'
+      'radio'
     end
   end
 
   class RelationshipSelectField < SingleSelectField
-
+    def field_type
+      'relation'
+    end
   end
 
   class MultiSelectField < Question
@@ -75,7 +77,7 @@ module Surveyable
 
   class MoneyAmountField < Question
     def field_type
-      'text'
+      'money'
     end
   end
 
@@ -87,7 +89,7 @@ module Surveyable
 
   class MultiDocumentField < Question
     def field_type
-      'file'
+      'multifile'
     end
   end
 
