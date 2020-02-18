@@ -12,9 +12,7 @@ module Surveyable
       end
     end
     module InstanceMethods
-      def survey
-        nil
-      end
+
     end
   end
 end

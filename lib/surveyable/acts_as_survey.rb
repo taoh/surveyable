@@ -10,9 +10,7 @@ module Surveyable
       end
     end
     module InstanceMethods
-      def responses
-        []
-      end
+
     end
   end
 end
