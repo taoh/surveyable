@@ -30,6 +30,7 @@ Run migrations (to be included as files soon)
           t.text :text
           t.string :type
           t.boolean :required
+          t.integer :position
         end
     create_table :answers do |t|
           t.integer :question_id

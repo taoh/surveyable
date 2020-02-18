@@ -1,5 +1,8 @@
 module Surveyable
   class Question < ActiveRecord::Base
+    include RankedModel
+    ranks :position
+    
     belongs_to :survey, polymorphic: true
     has_many :answers, :dependent => :restrict_with_error
     has_many :answer_choices, dependent: :destroy
