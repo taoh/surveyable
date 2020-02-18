@@ -5,7 +5,7 @@ module Surveyable
     end
     module ClassMethods
       def acts_as_survey(options = {})
-        has_many :questions, as: :survey, class_name: 'Surveyable::Question'
+        has_many :questions, as: :survey, class_name: 'Surveyable::Question', order: "position ASC"
         send :include, InstanceMethods
       end
     end
