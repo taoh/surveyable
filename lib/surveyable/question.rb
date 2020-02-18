@@ -9,6 +9,8 @@ module Surveyable
     validates_presence_of :text
     validates_presence_of :type
 
+    default_scope order: "position ASC, id ASC"
+
     scope :required, -> { where(required:true)}
     def field_type
       'text'
