@@ -1,6 +1,6 @@
 module Surveyable
   class Question < ActiveRecord::Base
-    include RankedModel
+    include ::RankedModel
     ranks :position
     
     belongs_to :survey, polymorphic: true
