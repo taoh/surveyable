@@ -3,7 +3,7 @@ module Surveyable
     belongs_to :survey, polymorphic: true
     has_many :answers, :dependent => :restrict_with_error
     has_many :answer_choices, dependent: :destroy
-    STI_TYPES = %w[InfoField HiddenField BooleanField DateField SingleSelectField MultiSelectField TextField StringField IntegerField MoneyAmountField SingleDocumentField MultiDocumentField TelephoneField RelationshipSelectField]
+    STI_TYPES = %w[InfoField HiddenField BooleanField DateField SingleSelectField MultiSelectField TextField StringField IntegerField MoneyAmountField SingleDocumentField MultiDocumentField TelephoneField RelationshipSelectField EmailField NpsField]
     accepts_nested_attributes_for :answer_choices, :allow_destroy => true,
                                   :reject_if => lambda { |a| a[:text].blank? }
     validates_presence_of :text
@@ -98,6 +98,18 @@ module Surveyable
   class TelephoneField < Question
     def field_type
       'tel'
+    end
+  end
+
+  class EmailField < Question
+    def field_type
+      'email'
+    end
+  end
+
+  class NpsField < Question
+    def field_type
+      'nps'
     end
   end
 end
